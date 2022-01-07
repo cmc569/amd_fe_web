@@ -14,5 +14,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('index');
+});
+
+Route::get('/qiz', function () {
+    return view('qiz');
+});
+
+Route::get('/rule', function () {
+    return view('rule');
+});
+
+Route::get('/products', function () {
+    return view('products');
+});
+
+Route::get('/efficiency', function () {
+    return view('result0');
+});
+
+Route::get('/planning', function () {
+    return view('result1');
+});
+
+Route::get('/communication', function () {
+    return view('result2');
+});
+
+Route::get('/creative', function () {
+    return view('result3');
 });
