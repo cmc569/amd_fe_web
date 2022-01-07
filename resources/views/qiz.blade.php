@@ -91,11 +91,11 @@
                 <div class="d-flex mb-3" style="position: relative;">
                   <label class="label-style mr-4">願意業務聯繫</label>
                   <div class="mr-4">
-                    <input type="radio" class="d-none" id="yes" name="contact" required>
+                    <input type="radio" class="d-none" id="yes" name="contact" value="Y" required>
                     <label for="yes"><span class="fake-radio"></span>是</label>
                   </div>
                   <div class="mr-4">
-                    <input type="radio" class="d-none" id="no" name="contact">
+                    <input type="radio" class="d-none" id="no" name="contact" value="N">
                     <label for="no"><span class="fake-radio"></span>否</label>
                   </div>
                 </div>
@@ -179,6 +179,7 @@
     crossorigin="anonymous"></script>
   <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script> -->
   <script src="js/jquery.validate.min.js"></script>
+  <script src='/js/main.js'></script>
   <script>
 
     $(document).ready(function () {
@@ -201,12 +202,14 @@
         resultArr.push(obj)
         $('#q1').css('display', 'none')
         $('#q2').css('display', 'block')
+        steps(2, JSON.stringify(obj));
       });
       $('#ansQ1B').on('click', function () {
         let obj = { typeA: 3, typeB: 4, typeC: 1, typeD: 2 }
         resultArr.push(obj)
         $('#q1').css('display', 'none')
         $('#q2').css('display', 'block')
+        steps(2, JSON.stringify(obj));
       });
 
       //第二題
@@ -215,12 +218,14 @@
         resultArr.push(obj)
         $('#q2').css('display', 'none')
         $('#q3').css('display', 'block')
+        steps(3, JSON.stringify(obj));
       });
       $('#ansQ2B').on('click', function () {
         let obj = { typeA: 4, typeB: 3, typeC: 1, typeD: 2 }
         resultArr.push(obj)
         $('#q2').css('display', 'none')
         $('#q3').css('display', 'block')
+        steps(3, JSON.stringify(obj));
       });
 
       //第三題
@@ -229,6 +234,7 @@
         resultArr.push(obj)
         $('#q3').css('display', 'none')
         $('#modalForm').modal().show()
+        steps(4, JSON.stringify(obj));
         getResult()
       });
       $('#ansQ3B').on('click', function () {
@@ -236,6 +242,7 @@
         resultArr.push(obj)
         $('#q3').css('display', 'none')
         $('#modalForm').modal().show()
+        steps(4, JSON.stringify(obj));
         getResult()
       });
 
@@ -254,7 +261,17 @@
         // 驗證通過後do something
         submitHandler: function (form) {
           // form.submit();
-          location.href = `result${index}.html`
+          
+          let data = {
+            name: form.name.value,
+            title: form.jobTitle.value,
+            company: form.company.value,
+            tel: form.tel.value,
+            mobile: form.mobile.value,
+            email: form.email.value,
+            contact: form.contact.value,
+          }
+          register(data, index);
         },
         ignore: true,
         rules: {
@@ -285,7 +302,28 @@
       $.validator.addMethod("mobile", function (phone_number, element) {
         return this.optional(element) || /^09\d{2}\-?\d{3}\-?\d{3}$/.test(phone_number);
       }, "手機號碼格式或長度錯誤");
+
     });
+
+    function register(data, page) {
+        let url = '/api/register';
+				$.ajax({
+					url: url,
+					type: 'POST',
+					data:  data,
+					success: function(response, textStatus, jqXHR) {
+            steps(5, null);
+            location.replace('/result' + page);
+					},
+					error: function (jqXHR, textStatus, errorThrown) {
+						console.log(jqXHR);
+						console.log(textStatus);
+						console.log(errorThrown);
+            alert('系統異常、請稍後再試');
+					}
+
+				}, 'json');
+    }
   </script>
 </body>
 

@@ -28,7 +28,7 @@ class ApiService
      * @param String $answer
      * @return \Illuminate\Http\JsonResponse
      */
-    public function steps(String $step, String $answer)
+    public function steps(String $step, String $answer=null)
     {
         if ($this->step_repository->createSteps($step, $answer)) {
             return response()->json(['status' => 200, 'message' => '儲存成功']);
@@ -37,4 +37,23 @@ class ApiService
         return response()->json(['status' => 400, 'message' => '儲存失敗']);
     }
     
+    /**
+     * 紀錄顧客資訊
+     * @param String $name
+     * @param String $title
+     * @param String $company
+     * @param String $tel
+     * @param String $mobile
+     * @param String $email
+     * @param String $contact
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function register(String $name, String $title, String $company, String $tel, String $mobile, String $email, String $contact)
+    {
+        if ($this->customer_repository->createCustomers($name, $title, $company, $tel, $mobile, $email, $contact)) {
+            return response()->json(['status' => 200, 'message' => '儲存成功']);
+        }
+        return response()->json(['status' => ㄉ00, 'message' => '儲存成功']);
+    }
+
 }

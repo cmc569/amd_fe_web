@@ -22,7 +22,7 @@ class StepRepository
      * @param String $step
      * @param String $answer
      */
-    public function createSteps(String $step, String $answer)
+    public function createSteps(String $step, String $answer=null)
     {
         return $this->steps->create([
             'step'      => $step,

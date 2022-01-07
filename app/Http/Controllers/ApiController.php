@@ -26,7 +26,7 @@ class ApiController extends Controller
     public function steps(Request $request)
     {
         $validated = $request->validate([
-            'step'      => 'required|string|max:255',
+            'step'      => 'required|string',
             'answer'    => 'nullable|string',
         ]);
 
@@ -34,6 +34,38 @@ class ApiController extends Controller
             return response()->json(['status' => 400, 'message' => '參數錯誤']);
         }
 
-        return $this->api_service->steps($request->input('step'), $request->input('answer', ''));
+        return $this->api_service->steps($request->input('step'), $request->input('answer', null));
+    }
+
+    /**
+     * 紀錄訪客資訊
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request)
+    {
+        $validated = $request->validate([
+            'name'      => 'required|string',
+            'title'     => 'required|string',
+            'company'   => 'required|string',
+            'tel'       => 'required|string',
+            'mobile'    => 'required|string|size:10',
+            'email'     => 'required|Email',
+            'contact'   => 'required|alpha|size:1',
+        ]);
+
+        if (empty($validated)) {
+            return response()->json(['status' => 400, 'message' => '參數錯誤']);
+        }
+
+        return $this->api_service->register(
+            $request->input('name'),
+            $request->input('title'),
+            $request->input('company'),
+            $request->input('tel'),
+            $request->input('mobile'),
+            $request->input('email'),
+            $request->input('contact'),
+        );
     }
 }

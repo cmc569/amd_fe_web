@@ -25,7 +25,7 @@
 		<div class="main d-flex justify-content-center align-items-center">
 			<div class="main-vision">
 				<div class="vision"><img src="img/main-vision.png" alt=""></div>
-				<a href="test.html" class="vision-btn" id="testStart">開始測驗 ►►</a>
+				<a href="Javascript:void(0)" class="vision-btn" id="testStart">開始測驗 ►►</a>
 			</div>
 		</div>
 		<div class="toolbar">

@@ -30,18 +30,18 @@ Route::get('/products', function () {
     return view('products');
 });
 
-Route::get('/efficiency', function () {
+Route::get('/result0', function () {
     return view('result0');
 });
 
-Route::get('/planning', function () {
+Route::get('/result1', function () {
     return view('result1');
 });
 
-Route::get('/communication', function () {
+Route::get('/result2', function () {
     return view('result2');
 });
 
-Route::get('/creative', function () {
+Route::get('/result3', function () {
     return view('result3');
 });
