@@ -9,5 +9,5 @@ class Step extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['step', 'answer'];
+    protected $fillable = ['ip', 'step', 'answer'];
 }

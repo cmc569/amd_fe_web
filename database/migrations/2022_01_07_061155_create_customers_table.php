@@ -15,6 +15,7 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->string('ip')->nullable()->comment('來源ip');
             $table->string('name')->comment('姓名');
             $table->string('title')->comment('職稱');
             $table->string('company')->comment('公司名稱');

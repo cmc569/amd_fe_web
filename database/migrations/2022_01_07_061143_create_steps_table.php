@@ -15,6 +15,7 @@ class CreateStepsTable extends Migration
     {
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
+            $table->string('ip')->nullable()->comment('來源ip');
             $table->string('step', 20)->index()->comment('活動階段');
             $table->text('answer')->nullable()->comment('答案');
             $table->integer('count')->default('1')->comment('次數');
