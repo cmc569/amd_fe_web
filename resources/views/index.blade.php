@@ -100,6 +100,8 @@
 			// 	once: true,
 			// });
 			$('#testStart').on('click', function() {
+				$('#testStart').prop('disabled', true);
+				
 				let url = '/api/step';
 				$.ajax({
 					url: url,
@@ -109,6 +111,7 @@
 						location.replace('/qiz');
 					},
 					error: function (jqXHR, textStatus, errorThrown) {
+						$('#testStart').prop('disabled', false);
 						console.log(jqXHR);
 						console.log(textStatus);
 						console.log(errorThrown);

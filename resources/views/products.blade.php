@@ -469,7 +469,7 @@
           </div>
         </div>
       </div>
-      <a href="Javascript:void(0)" class="btn-answer text-center mt-5" onclick="go_back()">回活動首頁</a>
+      <a href="Javascript:void(0)" class="btn-answer text-center mt-5" id="go_main" onclick="go_back()">回活動首頁</a>
     </div>
     <div class="toolbar">
 			<div class="toolbar__logo">
@@ -546,6 +546,7 @@
     });
 
     function go_back() {
+      $('#go_main').prop('disabled', true);
       steps(8, null);
       location.replace('/');
     }

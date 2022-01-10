@@ -261,7 +261,8 @@
         // 驗證通過後do something
         submitHandler: function (form) {
           // form.submit();
-          
+          $('#Form').prop('disabled', true);
+
           let data = {
             name: form.name.value,
             title: form.jobTitle.value,
