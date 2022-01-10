@@ -54,7 +54,7 @@
             <li>支援信任平台模組 2.0 (TPM 2.0)，可透過加密金鑰確保硬體安全</li>
           </ul>
           <div class="text-center my-5">
-            <a href="products.html" class="btn btn-primary">了解更多伺服器</a>
+            <a href="Javascript:void(0)" class="btn btn-primary" onclick="know_more()">了解更多伺服器</a>
           </div>
         </div>
         <h5 class="text-white mb-3 text-center text-lg-left ">ASUS其他型號伺服器</h5>
@@ -122,7 +122,7 @@
 			<div class="toolbar__icons">
 				<a href="javascript:void(0)" data-toggle="modal" data-target="#shareList"><img src="img/icon-share.svg"></a>
 				<a class="d-none" href="javascript:void(0)" data-toggle="modal" data-target="#winnerList"><img src="img/icon-gift.svg"></a>
-				<a href="rule.html" target="_blank"><img src="img/icon-i.svg"></a>
+				<a href="/rule" target="_blank"><img src="img/icon-i.svg"></a>
 			</div>
       <!-- 中獎名單modal -->
       <div id="winnerList" class="modal fade" data-backdrop="static">
@@ -150,13 +150,13 @@
 							<div class="d-flex justify-content-around">
 								<div class="text-center mb-4 mt-2">
 									<p class="mb-3">Facebook</p>
-									<a href="" style="width: 100px;">
+									<a href="Javascript:void(0)" style="width: 100px;" onclick="meta_share(this)">
 										<img src="img/icon-fb.png">
 									</a>
 								</div>
 								<div class="text-center mb-4 mt-2">
 									<p class="mb-3">LINE</p>
-									<a href="" style="width: 100px;">
+									<a href="Javascript:void(0)" style="width: 100px;" onclick="line_share(this)">
 										<img src="img/icon-line.png">
 									</a>
 								</div>
@@ -178,13 +178,11 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script> -->
+  <script src='/js/main.js'></script>
   <script>
 
     $(document).ready(function () {
-      // AOS啟動
-      // AOS.init({
-      // 	once: true,
-      // });
+      steps(6, '創意專家');
     });
   </script>
 </body>

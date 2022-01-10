@@ -30,6 +30,7 @@ class CustomerRepository
      */
     public function createCustomers(String $name, String $title, String $company, String $tel, String $mobile, String $email, String $contact)
     {
+        $contact = ($contact == 'Y') ? 'Y' : 'N';
         return $this->customers->create([
             'name'      => $name,
             'title'     => $title,
