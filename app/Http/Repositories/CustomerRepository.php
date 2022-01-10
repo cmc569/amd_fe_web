@@ -20,6 +20,7 @@ class CustomerRepository
 
     /**
      * 紀錄顧客資訊
+     * @param String $ip
      * @param String $name
      * @param String $title
      * @param String $company
@@ -28,10 +29,12 @@ class CustomerRepository
      * @param String $email
      * @param String $contact
      */
-    public function createCustomers(String $name, String $title, String $company, String $tel, String $mobile, String $email, String $contact)
+    public function createCustomers(String $ip, String $name, String $title, String $company, String $tel, String $mobile, String $email, String $contact)
     {
         $contact = ($contact == 'Y') ? 'Y' : 'N';
+        $ip = $ip ?? null;
         return $this->customers->create([
+            'ip'        => $ip ?? null,
             'name'      => $name,
             'title'     => $title,
             'company'   => $company,

@@ -34,7 +34,7 @@ class ApiController extends Controller
             return response()->json(['status' => 400, 'message' => '參數錯誤']);
         }
 
-        return $this->api_service->steps($request->input('step'), $request->input('answer', null));
+        return $this->api_service->steps($request->ip(), $request->input('step'), $request->input('answer', null));
     }
 
     /**
@@ -59,6 +59,7 @@ class ApiController extends Controller
         }
 
         return $this->api_service->register(
+            $request->ip(),
             $request->input('name'),
             $request->input('title'),
             $request->input('company'),
