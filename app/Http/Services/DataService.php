@@ -62,7 +62,7 @@ class DataService
     public function getUser(String $start=null, String $end=null)
     {
         $users = $this->data_repository->getUser($start, $end);
-        // dd($users);
+        
         return response()->json([
             'status'    => 200,
             'data'      => $users,
