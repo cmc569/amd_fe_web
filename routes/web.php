@@ -13,35 +13,50 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DataController;
+
 Route::get('/', function () {
     // return view('welcome');
     return view('index');
 });
 
-Route::get('/qiz', function () {
+Route::get('qiz', function () {
     return view('qiz');
 });
 
-Route::get('/rule', function () {
+Route::get('rule', function () {
     return view('rule');
 });
 
-Route::get('/products', function () {
+Route::get('products', function () {
     return view('products');
 });
 
-Route::get('/result0', function () {
+Route::get('result0', function () {
     return view('result0');
 });
 
-Route::get('/result1', function () {
+Route::get('result1', function () {
     return view('result1');
 });
 
-Route::get('/result2', function () {
+Route::get('result2', function () {
     return view('result2');
 });
 
-Route::get('/result3', function () {
+Route::get('result3', function () {
     return view('result3');
+});
+
+
+Route::get('manage', [UserController::class, 'index'])->name('admin');
+Route::get('login', [UserController::class, 'login'])->name('login');
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
+// Route::get('register', [UserController::class, 'register'])->name('register');
+Route::post('login', [UserController::class, 'verify'])->name('verify');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['web', 'check.login']], function () {
+    Route::get('dashboard', [DataController::class, 'dashboard'])->name('dashboard');
+    Route::get('userInfo', [DataController::class, 'info'])->name('userInfo');
 });
