@@ -56,7 +56,7 @@ Route::get('logout', [UserController::class, 'logout'])->name('logout');
 // Route::get('register', [UserController::class, 'register'])->name('register');
 Route::post('login', [UserController::class, 'verify'])->name('verify');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['web', 'check.login']], function () {
+Route::group(['prefix' => 'console', 'middleware' => ['web', 'check.login']], function () {
     Route::get('dashboard', [DataController::class, 'dashboard'])->name('dashboard');
     Route::get('userInfo', [DataController::class, 'info'])->name('userInfo');
 });
