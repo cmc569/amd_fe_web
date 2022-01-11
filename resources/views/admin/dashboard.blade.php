@@ -164,7 +164,6 @@
         .columns.adjust();
     });
 
-    dashboard();
   });
 
 </script>
