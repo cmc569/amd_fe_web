@@ -50,13 +50,21 @@ Route::get('result3', function () {
 });
 
 
-Route::get('console', [UserController::class, 'index'])->name('admin');
-Route::get('login', [UserController::class, 'login'])->name('login');
-Route::get('logout', [UserController::class, 'logout'])->name('logout');
-// Route::get('register', [UserController::class, 'register'])->name('register');
-Route::post('login', [UserController::class, 'verify'])->name('verify');
+// Route::get('test', [DataController::class, 'test']);
 
-Route::group(['prefix' => 'console', 'middleware' => ['web', 'check.login']], function () {
-    Route::get('dashboard', [DataController::class, 'dashboard'])->name('dashboard');
-    Route::get('userInfo', [DataController::class, 'info'])->name('userInfo');
+Route::group(['prefix' => 'console', 'middleware' => 'web'], function () {
+    Route::get('/', [UserController::class, 'index'])->name('admin');
+
+    Route::get('login', [UserController::class, 'login'])->name('login');
+    Route::post('login', [UserController::class, 'verify'])->name('verify');
+    Route::get('logout', [UserController::class, 'logout'])->name('logout');
+    // Route::get('register', [UserController::class, 'register'])->name('register');
+    
+    Route::group(['middleware' => 'check.login'], function () {
+        Route::get('dashboard', [DataController::class, 'dashboard'])->name('dashboard');
+        Route::post('getStage', [DataController::class, 'getStage'])->name('getStage');
+
+        Route::get('userInfo', [DataController::class, 'info'])->name('userInfo');
+        Route::post('getUser', [DataController::class, 'getUser'])->name('getUser');
+    });
 });
