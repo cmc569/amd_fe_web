@@ -50,7 +50,7 @@ Route::get('result3', function () {
 });
 
 
-Route::get('manage', [UserController::class, 'index'])->name('admin');
+Route::get('console', [UserController::class, 'index'])->name('admin');
 Route::get('login', [UserController::class, 'login'])->name('login');
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 // Route::get('register', [UserController::class, 'register'])->name('register');
