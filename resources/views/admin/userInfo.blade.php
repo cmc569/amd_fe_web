@@ -6,7 +6,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -41,7 +40,7 @@
                             <input type="text" class="input-style" name="endday" id="endDay" required="required"
                                 autocomplete="off" placeholder="結束日">
                         </div>
-                        <button type="submit" class="btn btn-primary ml-3">查詢</button>
+                        <button type="button" class="btn btn-primary ml-3" id="query">查詢</button>
                     </div>
                 </form>
                 <div class="content-wrap">
@@ -49,6 +48,7 @@
                     <table id="DT" class="table nowrap no-footer table-style" style="width: 100%;">
                         <thead>
                             <tr>
+                                <th>IP</th>
                                 <th>姓名</th>
                                 <th>公司</th>
                                 <th>職稱</th>
@@ -59,24 +59,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>王大明</td>
-                                <td>某某公司</td>
-                                <td>專案企劃</td>
-                                <td>02-55555555/123</td>
-                                <td>0912345678</td>
-                                <td>ewwqeqw@ewqhuiqi.dkwo</td>
-                                <td>是</td>
-                            </tr>
-                            <tr>
-                                <td>陳陳</td>
-                                <td>某某公司</td>
-                                <td>專案企劃</td>
-                                <td>02-55555555/123</td>
-                                <td>0912345678</td>
-                                <td>ewwqeqw@ewqhuiqi.dkwo</td>
-                                <td>否</td>
-                            </tr>
                         </tbody>
                     </table>
                     <!-- End Datatable -->
@@ -136,6 +118,32 @@
                 }
             },
 
+            ajax: {
+                type: 'POST',
+                url: "{{ route('getUser') }}",
+                data: {
+                    _token:"{{csrf_token()}}",
+                    start: function() { return $('#startDay').val() },
+                    end: function() { return $('#endDay').val() },
+                },
+            },
+            columns: [
+                { data: 'ip'},
+                { data: 'name'},
+                { data: 'company'},
+                { data: 'title'},
+                { data: 'tel'},
+                { data: 'mobile'},
+                { data: 'email'},
+                {
+                    data: 'contact',
+                    render: function(data, type, row, meta) {
+                        if (data == 'Y') return '是';
+                        else return '否';
+                    }
+                },
+            ],
+
             language: {
                 "decimal": "",
                 "lengthMenu": "每頁 _MENU_ 筆",
@@ -161,7 +169,13 @@
             $($.fn.dataTable.tables(true)).DataTable()
                 .columns.adjust();
         });
+
+        $('#query').on('click', function() {
+            tables.ajax.reload();
+        })
+
     });
+
 </script>
 
 </html>

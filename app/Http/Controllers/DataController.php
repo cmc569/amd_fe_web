@@ -34,28 +34,23 @@ class DataController extends Controller
 
     /**
      * 
-     * @param String $start
-     * @param String $end
      */
     public function getUser(Request $request)
     {
-        $start = preg_match("/^\d{4}\-\d{1, 2}\-\d{1, 2} \d{2}:\d{2}:\d{2}$/", $request->input('start')) ?? null;
-        $end = preg_match("/^\d{4}\-\d{1, 2}\-\d{1, 2} \d{2}:\d{2}:\d{2}$/", $request->input('end')) ?? null;
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        $start = preg_match("/^\d{4}\-\d{2}\-\d{2}$/", $start) ? $start : null;
+        $end = preg_match("/^\d{4}\-\d{2}\-\d{2}$/", $end) ? $end : null;
 
         if (empty($start) || empty($end)) {
             $start = null;
             $end = null;
         } else {
-            $start = date("Y-m-d", strtotime($start)).' 00:00:00';
-            $end = date("Y-m-d", strtotime($end)).' 23:59:59';
+            $start .= ' 00:00:00';
+            $end .= ' 23:59:59';
         }
 
         return $this->data_service->getUser($start, $end);
-    }
-
-    public function test()
-    {
-        return $this->data_service->getUser();
-        // return $this->data_service->getUser('2022-01-11 00:00:00', '2022-01-11 23:59:59');
     }
 }
