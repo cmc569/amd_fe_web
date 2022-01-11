@@ -23,7 +23,7 @@
 
 <body>
     <div id="wrapper">
-        @include('layout._sidebar')
+        @include('admin.layout._sidebar')
         
         <!-- 右邊內容 -->
         <main class="main">
