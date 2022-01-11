@@ -32,23 +32,19 @@
           <div class="total-wrap">
             <div class="total">
               <p>總流量</p>
-              <p class="total__people">100</p>
+              <p class="total__people">{{ $data['total'] }}</p>
             </div>
             <div class="total">
               <p>總遊戲人數</p>
-              <p class="total__people">100</p>
-            </div>
-            <div class="total">
-              <p>總不重複遊戲人數</p>
-              <p class="total__people">100</p>
+              <p class="total__people">{{ $data['game'] }}</p>
             </div>
             <div class="total">
               <p>總名單人數</p>
-              <p class="total__people">100</p>
+              <p class="total__people">{{ $data['contact_all'] }}</p>
             </div>
             <div class="total">
               <p>總不重複名單人數</p>
-              <p class="total__people">100</p>
+              <p class="total__people">{{ $data['contact'] }}</p>
             </div>
           </div>
         </div>
@@ -66,43 +62,43 @@
             <tbody>
               <tr>
                 <td>1.完成開始</td>
-                <td>1244</td>
-                <td>90%</td>
+                <td>{{ $data['data']['1']['total'] }}</td>
+                <td>{{ $data['data']['1']['percent'] }}</td>
               </tr>
               <tr>
                 <td>2.完成第一題</td>
-                <td>1244</td>
-                <td>90%</td>
+                <td>{{ $data['data']['2']['total'] }}</td>
+                <td>{{ $data['data']['2']['percent'] }}</td>
               </tr>
               <tr>
                 <td>3.完成第二題</td>
-                <td>1244</td>
-                <td>90%</td>
+                <td>{{ $data['data']['3']['total'] }}</td>
+                <td>{{ $data['data']['3']['percent'] }}</td>
               </tr>
               <tr>
                 <td>4.完成第三題</td>
-                <td>1244</td>
-                <td>90%</td>
+                <td>{{ $data['data']['4']['total'] }}</td>
+                <td>{{ $data['data']['4']['percent'] }}</td>
               </tr>
               <tr>
                 <td>5.留下資訊</td>
-                <td>1244</td>
-                <td>90%</td>
+                <td>{{ $data['data']['5']['total'] }}</td>
+                <td>{{ $data['data']['5']['percent'] }}</td>
               </tr>
               <tr>
                 <td>6.獲得結果</td>
-                <td>1244</td>
-                <td>88%</td>
+                <td>{{ $data['data']['6']['total'] }}</td>
+                <td>{{ $data['data']['6']['percent'] }}</td>
               </tr>
               <tr>
                 <td>7.完成獲得結果-了解更多</td>
-                <td>1244</td>
-                <td>9%</td>
+                <td>{{ $data['data']['7']['total'] }}</td>
+                <td>{{ $data['data']['7']['percent'] }}</td>
               </tr>
               <tr>
                 <td>8.完成獲得結果-了解更多-回首頁</td>
-                <td>1244</td>
-                <td>90%</td>
+                <td>{{ $data['data']['8']['total'] }}</td>
+                <td>{{ $data['data']['8']['percent'] }}</td>
               </tr>
             </tbody>
           </table>
@@ -167,7 +163,10 @@
       $($.fn.dataTable.tables(true)).DataTable()
         .columns.adjust();
     });
+
+    dashboard();
   });
+
 </script>
 
 </html>

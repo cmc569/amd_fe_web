@@ -38,20 +38,20 @@ class DataService
                 $total += (int)$item['total'];
 
                 $data[$item['step']] = [
+                    'step'      => $item['step'],
                     'total'     => $item['total'],
-                    'persent'   => (int)round(($last_stage / $item['total']) * 100),
+                    'percent'   => (int)round(($last_stage / $item['total']) * 100).'%',
                 ];
             }
         }
 
-        return response()->json([
-            'status'        => 200,
+        return [
             'total'         => $total,
             'game'          => $game_all,
             'contact_all'   => $contact_all,
             'contact'       => $contact_distinct,
             'data'          => $data,
-        ]);
+        ];
     }
 
     /**

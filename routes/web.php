@@ -49,9 +49,6 @@ Route::get('result3', function () {
     return view('result3');
 });
 
-
-// Route::get('test', [DataController::class, 'test']);
-
 Route::group(['prefix' => 'console', 'middleware' => 'web'], function () {
     Route::get('/', [UserController::class, 'index'])->name('admin');
 
@@ -62,7 +59,6 @@ Route::group(['prefix' => 'console', 'middleware' => 'web'], function () {
     
     Route::group(['middleware' => 'check.login'], function () {
         Route::get('dashboard', [DataController::class, 'dashboard'])->name('dashboard');
-        Route::post('getStage', [DataController::class, 'getStage'])->name('getStage');
 
         Route::get('userInfo', [DataController::class, 'info'])->name('userInfo');
         Route::post('getUser', [DataController::class, 'getUser'])->name('getUser');

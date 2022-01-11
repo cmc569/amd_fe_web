@@ -20,7 +20,8 @@ class DataController extends Controller
      */
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $data = $this->data_service->getStage();
+        return view('admin.dashboard', compact('data'));
     }
 
     /**
@@ -29,14 +30,6 @@ class DataController extends Controller
     public function info()
     {
         return view('admin.userInfo');
-    }
-
-    /**
-     * 
-     */
-    public function getStage()
-    {
-        return $this->data_service->getStage();
     }
 
     /**
