@@ -24,7 +24,7 @@ function know_more() {
 
 function line_share(el) {
     // el.href = 'http://line.naver.jp/R/msg/text/?你是哪一種類型的職場高手，是效率、規劃、溝通還是創意專家？參與測驗了解更多>>' + get_current_url();
-    el.href = 'http://line.naver.jp/R/msg/text/?你是哪一種類型的職場高手，是效率、規劃、溝通還是創意專家？參與測驗了解更多>>%0D%0A' + get_current_url();
+    el.href = 'https://social-plugins.line.me/lineit/share?url='  + get_current_url() + '&text=你是哪一種類型的職場高手，是效率、規劃、溝通還是創意專家？參與測驗了解更多>>';
 }
 
 function meta_share(el) {
