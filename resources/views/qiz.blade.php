@@ -181,7 +181,7 @@
     crossorigin="anonymous"></script>
   <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script> -->
   <script src="js/jquery.validate.min.js"></script>
-  <script src='/js/main.js'></script>
+  <script src='/js/main.js?v=1'></script>
   <script>
 
     $(document).ready(function () {
