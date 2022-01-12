@@ -32,19 +32,19 @@
           <div class="total-wrap">
             <div class="total">
               <p>總流量</p>
-              <p class="total__people">{{ $data['total'] }}</p>
+              <p class="total__people">{{ $data['total'] ?? '0' }}</p>
             </div>
             <div class="total">
               <p>總遊戲人數</p>
-              <p class="total__people">{{ $data['game'] }}</p>
+              <p class="total__people">{{ $data['game'] ?? '0' }}</p>
             </div>
             <div class="total">
               <p>總名單人數</p>
-              <p class="total__people">{{ $data['contact_all'] }}</p>
+              <p class="total__people">{{ $data['contact_all'] ?? '0' }}</p>
             </div>
             <div class="total">
               <p>總不重複名單人數</p>
-              <p class="total__people">{{ $data['contact'] }}</p>
+              <p class="total__people">{{ $data['contact'] ?? '0' }}</p>
             </div>
           </div>
         </div>
@@ -62,43 +62,43 @@
             <tbody>
               <tr>
                 <td>1.完成開始</td>
-                <td>{{ $data['data']['1']['total'] }}</td>
-                <td>{{ $data['data']['1']['percent'] }}</td>
+                <td>{{ $data['data']['1']['total'] ?? '0' }}</td>
+                <td>{{ $data['data']['1']['percent'] ?? '0%' }}</td>
               </tr>
               <tr>
                 <td>2.完成第一題</td>
-                <td>{{ $data['data']['2']['total'] }}</td>
-                <td>{{ $data['data']['2']['percent'] }}</td>
+                <td>{{ $data['data']['2']['total'] ?? '0' }}</td>
+                <td>{{ $data['data']['2']['percent'] ?? '0%' }}</td>
               </tr>
               <tr>
                 <td>3.完成第二題</td>
-                <td>{{ $data['data']['3']['total'] }}</td>
-                <td>{{ $data['data']['3']['percent'] }}</td>
+                <td>{{ $data['data']['3']['total'] ?? '0' }}</td>
+                <td>{{ $data['data']['3']['percent'] ?? '0%' }}</td>
               </tr>
               <tr>
                 <td>4.完成第三題</td>
-                <td>{{ $data['data']['4']['total'] }}</td>
-                <td>{{ $data['data']['4']['percent'] }}</td>
+                <td>{{ $data['data']['4']['total'] ?? '0' }}</td>
+                <td>{{ $data['data']['4']['percent'] ?? '0%' }}</td>
               </tr>
               <tr>
                 <td>5.留下資訊</td>
-                <td>{{ $data['data']['5']['total'] }}</td>
-                <td>{{ $data['data']['5']['percent'] }}</td>
+                <td>{{ $data['data']['5']['total'] ?? '0' }}</td>
+                <td>{{ $data['data']['5']['percent'] ?? '0%' }}</td>
               </tr>
               <tr>
                 <td>6.獲得結果</td>
-                <td>{{ $data['data']['6']['total'] }}</td>
-                <td>{{ $data['data']['6']['percent'] }}</td>
+                <td>{{ $data['data']['6']['total'] ?? '0' }}</td>
+                <td>{{ $data['data']['6']['percent'] ?? '0%' }}</td>
               </tr>
               <tr>
                 <td>7.完成獲得結果-了解更多</td>
-                <td>{{ $data['data']['7']['total'] }}</td>
-                <td>{{ $data['data']['7']['percent'] }}</td>
+                <td>{{ $data['data']['7']['total'] ?? '0' }}</td>
+                <td>{{ $data['data']['7']['percent'] ?? '0%' }}</td>
               </tr>
               <tr>
                 <td>8.完成獲得結果-了解更多-回首頁</td>
-                <td>{{ $data['data']['8']['total'] }}</td>
-                <td>{{ $data['data']['8']['percent'] }}</td>
+                <td>{{ $data['data']['8']['total'] ?? '0' }}</td>
+                <td>{{ $data['data']['8']['percent'] ?? '0%' }}</td>
               </tr>
             </tbody>
           </table>
