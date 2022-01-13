@@ -1,4 +1,15 @@
 
+if (window.performance) {
+    console.info("window.performance works fine on this browser");
+} else {
+    let _title = document.title;
+    document.title = _title + '(R)';
+}
+
+if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+    location.replace(window.location.protocol + '//' + window.location.host);
+}
+
 function steps(step, ans) {
     let url = '/api/step';
     $.ajax({
