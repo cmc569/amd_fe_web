@@ -34,13 +34,28 @@ class DataService
         $data = [];
         $total = 0;
         if (count($all) > 0) {
-            foreach ($all as $item) {
+            // foreach ($all as $item) {
+            //     $total += (int)$item['total'];
+
+            //     $data[$item['step']] = [
+            //         'step'      => $item['step'],
+            //         'total'     => $item['total'],
+            //         'percent'   => (int)round(($last_stage / $item['total']) * 100).'%',
+            //     ];
+            // }
+            foreach ($all as $k => $item) {
                 $total += (int)$item['total'];
+
+                if ($k >= (count($all) - 1)) {
+                    $rating = 100;
+                } else {
+                    $rating = (int)round(($all[($k + 1)]['total'] / $item['total']) * 100);
+                }
 
                 $data[$item['step']] = [
                     'step'      => $item['step'],
                     'total'     => $item['total'],
-                    'percent'   => (int)round(($last_stage / $item['total']) * 100).'%',
+                    'percent'   => $rating.'%',
                 ];
             }
         }
