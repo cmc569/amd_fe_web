@@ -47,7 +47,7 @@ class DataService
                 $total += (int)$item['total'];
 
                 if ($k >= (count($all) - 1)) {
-                    $rating = 100;
+                    $rating = empty($item['total']) ? 0 : 100;
                 } else {
                     $rating = (int)round(($all[($k + 1)]['total'] / $item['total']) * 100);
                 }
