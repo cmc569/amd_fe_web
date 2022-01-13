@@ -8,7 +8,7 @@
     <meta property="og:image" content="/img/fbshare_banner.jpg" />
     <meta property="og:image:width" content="1280" />
     <meta property="og:image:height" content="720" />
-	
+
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
