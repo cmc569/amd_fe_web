@@ -66,10 +66,10 @@ class DataRepository
     public function getUser(String $start=null, String $end=null)
     {
         if ($start && $end) {
-            return $this->customers->whereBetween('created_at', [$start, $end])->get(['ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'contact', 'created_at']);
+            return $this->customers->whereBetween('created_at', [$start, $end])->groupBy('mobile')->orderBy('created_at', 'DESC')->orderBy('created_at', 'desc')->get(['ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'contact', 'created_at'])->unique('mobile');
         }
 
-        return $this->customers->all(['ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'contact', 'created_at']);
+        return $this->customers->select('ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'contact', 'created_at')->orderBy('created_at', 'desc')->get()->unique('mobile');
     }
 
 }
