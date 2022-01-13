@@ -29,9 +29,9 @@ class DataRepository
         return $this->steps->select('step', DB::raw('count(*) as total'))->groupBy('step')->get();
     }
 
-    public function getLastStageCount()
+    public function getStageCount(Int $step)
     {
-        return $this->steps->select(DB::raw('count(*) as total'))->where('step', '8')->first();
+        return $this->steps->select(DB::raw('count(*) as total'))->where('step', $step)->first();
     }
 
     /**

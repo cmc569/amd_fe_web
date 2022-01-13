@@ -28,7 +28,8 @@ class DataService
         $contact_all = $this->data_repository->contactAll();    //總名單人數
         $contact_distinct = $this->data_repository->contactDistinct();  //總不重複名單人數
 
-        $last_stage = $this->data_repository->getLastStageCount()->total;   //最後(第8階段)階段的人次
+        // $last_stage = $this->data_repository->getStageCount(8)->total;   //最後(第8階段)階段的人次
+        $first_stage = $this->data_repository->getStageCount(1)->total;   //第1階段的人次
         $all = $this->data_repository->getAllSteps()->toArray();    //各階段數據
 
         $data = [];
@@ -43,13 +44,12 @@ class DataService
             //         'percent'   => (int)round(($last_stage / $item['total']) * 100).'%',
             //     ];
             // }
-            foreach ($all as $k => $item) {
+            foreach ($all as $item) {
                 $total += (int)$item['total'];
+                $rating = (int)round(($item['total'] / $first_stage) * 100);
 
-                if ($k >= (count($all) - 1)) {
-                    $rating = empty($item['total']) ? 0 : 100;
-                } else {
-                    $rating = (int)round(($all[($k + 1)]['total'] / $item['total']) * 100);
+                if ($rating > 100) {
+                    $rating = 100;
                 }
 
                 $data[$item['step']] = [
