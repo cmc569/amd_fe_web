@@ -33,5 +33,5 @@ function meta_share(el) {
 
 function get_current_url() {
     // return window.location.origin
-    return window.location.protocol + '://' + window.location.host
+    return window.location.protocol + '//' + window.location.host
 }
