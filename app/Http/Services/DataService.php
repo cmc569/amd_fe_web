@@ -76,8 +76,27 @@ class DataService
      */
     public function getUser(String $start=null, String $end=null)
     {
+        // $users = $this->data_repository->getUser($start, $end);
         $users = $this->data_repository->getUser($start, $end);
-        return response()->json(['data' => $users]);
+// dd($users);        
+        $data = [];
+        foreach ($users as $user) {
+            $data[] = [
+                'ip'            => $user['ip'],
+                'name'          => $user['name'],
+                'title'         => $user['title'],
+                'company'       => $user['company'],
+                'tel'           => $user['tel'],
+                'mobile'        => $user['mobile'],
+                'email'         => $user['email'],
+                'contact'       => $user['contact'],
+                'created_at'    => $user['created_at'],
+            ];
+        }
+        
+//         dd($data);
+        return response()->json(['data' => $data]);
+        // return response()->json(['data' => $users]);
     }
 
 }

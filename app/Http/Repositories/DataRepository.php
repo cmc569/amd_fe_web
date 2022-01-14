@@ -69,7 +69,7 @@ class DataRepository
             return $this->customers->whereBetween('created_at', [$start, $end])->groupBy('mobile')->orderBy('created_at', 'DESC')->orderBy('created_at', 'desc')->get(['ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'contact', 'created_at'])->unique('mobile');
         }
 
-        return $this->customers->select('ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'contact', 'created_at')->orderBy('created_at', 'desc')->get()->unique('mobile')->all();
+        return $this->customers->select('ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'contact', 'created_at')->orderBy('created_at', 'desc')->get()->unique('mobile');
     }
 
 }
