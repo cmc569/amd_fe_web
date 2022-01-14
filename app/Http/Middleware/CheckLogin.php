@@ -19,7 +19,7 @@ class CheckLogin
         $isLogin = $request->session()->get('isLogin');
         
         if (empty($isLogin)) {
-            return redirect()->to('/login');
+            return redirect()->route('login');
         }
 
         return $next($request);
