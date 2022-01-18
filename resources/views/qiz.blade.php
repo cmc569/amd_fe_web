@@ -20,7 +20,7 @@
 <body class="">
   <div class="bg-img layout-column">
     <div class="nav-top">
-      <img src="img/logo.png" alt="logo">
+      <a href="/"><img src="img/logo.png" alt="logo"></a>
     </div>
     <div class="main d-flex flex-column justify-content-center align-items-center">
       <div id="q1" class="q1">

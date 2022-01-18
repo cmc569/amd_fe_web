@@ -27,7 +27,7 @@
 <body class="">
 	<div class="bg-img layout-column">
 		<div class="nav-top">
-			<img src="img/logo.png" alt="logo">
+			<a href="/"><img src="img/logo.png" alt="logo"></a>
 		</div>
 		<div class="main d-flex justify-content-center align-items-center">
 			<div class="main-vision">

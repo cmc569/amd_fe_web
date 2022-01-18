@@ -20,7 +20,7 @@
 <body class="">
 	<div class="bg-img layout-column">
 		<div class="nav-top">
-			<img src="img/logo.png" alt="logo">
+			<a href="/"><img src="img/logo.png" alt="logo"></a>
 		</div>
 		<div class="main text-white">
 			<div class="container-fluid w-960">
