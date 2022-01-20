@@ -16,37 +16,30 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DataController;
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('index');
+Route::view('/', 'index');
+Route::view('/rule', 'rule');
+Route::view('/products', 'products');
+
+Route::get('/qiz/{key?}', function($key=null) {
+    return view('qiz', ['key' => $key]);
 });
 
-Route::get('qiz', function () {
-    return view('qiz');
-});
+Route::group(['prefix' => '{key}'], function ($key) {
+    Route::get('result0', function ($key) {
+        return view('result0', ['key' => $key]);
+    });
 
-Route::get('rule', function () {
-    return view('rule');
-});
+    Route::get('result1', function ($key) {
+        return view('result1', ['key' => $key]);
+    });
 
-Route::get('products', function () {
-    return view('products');
-});
+    Route::get('result2', function ($key) {
+        return view('result2', ['key' => $key]);
+    });
 
-Route::get('result0', function () {
-    return view('result0');
-});
-
-Route::get('result1', function () {
-    return view('result1');
-});
-
-Route::get('result2', function () {
-    return view('result2');
-});
-
-Route::get('result3', function () {
-    return view('result3');
+    Route::get('result3', function ($key) {
+        return view('result3', ['key' => $key]);
+    });
 });
 
 Route::group(['prefix' => 'console', 'middleware' => 'web'], function () {

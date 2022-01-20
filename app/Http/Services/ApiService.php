@@ -52,10 +52,13 @@ class ApiService
      */
     public function register(String $ip, String $name, String $title, String $company, String $tel, String $mobile, String $email, String $contact)
     {
-        if ($this->customer_repository->createCustomers($ip, $name, $title, $company, $tel, $mobile, $email, $contact)) {
-            return response()->json(['status' => 200, 'message' => '儲存成功']);
+        //產生hash key身份驗證用
+        $key = base64_encode(bcrypt($mobile).uniqid(true));
+
+        if ($this->customer_repository->createCustomers($ip, $name, $title, $company, $tel, $mobile, $email, $contact, $key)) {
+            return response()->json(['status' => 200, 'message' => '儲存成功', 'key' => $key]);
         }
-        return response()->json(['status' => ㄉ00, 'message' => '儲存成功']);
+        return response()->json(['status' => 200, 'message' => '儲存成功', 'key' => 'NG']);
     }
 
 }

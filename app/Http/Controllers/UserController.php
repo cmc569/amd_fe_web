@@ -73,7 +73,7 @@ class UserController extends Controller
     public function register()
     {
         $account    = 'admin';
-        $email      = $acc.'@amd';
+        $email      = $account.'@amd';
         $password   = 'admin123admin';
 
         return $this->user_service->register($account, $password, $email);

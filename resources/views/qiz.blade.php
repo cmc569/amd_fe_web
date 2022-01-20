@@ -14,17 +14,19 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
-  <link rel="stylesheet" href="css/project.min.css">
+  <link rel="stylesheet" href="/css/project.min.css">
 </head>
 
 <body class="">
+  <input type="hidden" id="key" value="{{ $key }}"">
+
   <div class="bg-img layout-column">
     <div class="nav-top">
-      <a href="/"><img src="img/logo.png" alt="logo"></a>
+      <a href="/"><img src="/img/logo.png" alt="logo"></a>
     </div>
     <div class="main d-flex flex-column justify-content-center align-items-center">
       <div id="q1" class="q1">
-        <div class="_q"><img src="img/q1.png">
+        <div class="_q"><img src="/img/q1.png">
           <p>在工作中我是一個...</p>
         </div>
         <div class="_a">
@@ -33,7 +35,7 @@
         </div>
       </div>
       <div id="q2" class="q2">
-        <div class="_q"><img src="img/q2.png">
+        <div class="_q"><img src="/img/q2.png">
           <p>系統又出包，忙了一個早上終於危機解除，<br>今天下午茶想來點...</p>
         </div>
         <div class="_a">
@@ -42,7 +44,7 @@
         </div>
       </div>
       <div id="q3" class="q3">
-        <div class="_q"><img src="img/q3.png">
+        <div class="_q"><img src="/img/q3.png">
           <p>我的努力被看到了！下午的拆彈危機，<br>老闆賜我３天假，我最想去...</p>
         </div>
         <div class="_a">
@@ -117,12 +119,12 @@
     <!-- End Modal -->
     <div class="toolbar">
 			<div class="toolbar__logo">
-				<img class="d-none" src="img/logo2.png" alt="logo">
+				<img class="d-none" src="/img/logo2.png" alt="logo">
 			</div>
 			<div class="toolbar__icons">
-				<a href="javascript:void(0)" data-toggle="modal" data-target="#shareList"><img src="img/icon-share.svg"></a>
-				<a class="d-none" href="javascript:void(0)" data-toggle="modal" data-target="#winnerList"><img src="img/icon-gift.svg"></a>
-				<a href="/rule" target="_blank"><img src="img/icon-i.svg"></a>
+				<a href="javascript:void(0)" data-toggle="modal" data-target="#shareList"><img src="/img/icon-share.svg"></a>
+				<a class="d-none" href="javascript:void(0)" data-toggle="modal" data-target="#winnerList"><img src="/img/icon-gift.svg"></a>
+				<a href="/rule" target="_blank"><img src="/img/icon-i.svg"></a>
 			</div>
       <!-- 中獎名單modal -->
       <div id="winnerList" class="modal fade" data-backdrop="static">
@@ -151,13 +153,13 @@
 								<div class="text-center mb-4 mt-2">
 									<p class="mb-3">Facebook</p>
 									<a href="Javascript:void(0)" style="width: 100px;" onclick="meta_share(this)">
-										<img src="img/icon-fb.png">
+										<img src="/img/icon-fb.png">
 									</a>
 								</div>
 								<div class="text-center mb-4 mt-2">
 									<p class="mb-3">LINE</p>
 									<a href="Javascript:void(0)" style="width: 100px;" onclick="line_share(this)">
-										<img src="img/icon-line.png">
+										<img src="/img/icon-line.png">
 									</a>
 								</div>
 							</div>
@@ -233,17 +235,19 @@
         let obj = { typeA: 2, typeB: 1, typeC: 3, typeD: 4 }
         resultArr.push(obj)
         $('#q3').css('display', 'none')
-        $('#modalForm').modal().show()
+        
         steps(4, JSON.stringify(obj));
         getResult()
+        check_next();
       });
       $('#ansQ3B').on('click', function () {
         let obj = { typeA: 3, typeB: 4, typeC: 2, typeD: 1 }
         resultArr.push(obj)
         $('#q3').css('display', 'none')
-        $('#modalForm').modal().show()
+
         steps(4, JSON.stringify(obj));
         getResult()
+        check_next();
       });
 
       function getResult() {
@@ -255,6 +259,17 @@
         }
         totalArr = [typeA, typeB, typeC, typeD]
         index = totalArr.indexOf(Math.max(...totalArr)) //取得最大值位於陣列中第幾個
+      }
+
+      function check_next() {
+        let _key = $('#key').val();
+
+        if ((typeof _key === 'undefined') || (_key === null) || (_key == '') || (_key == 'NG')) {
+          $('#modalForm').modal().show()
+        }
+        else {
+          location.replace(`/${_key}/result${index}`);
+        }
       }
 
       $("#Form").validate({
@@ -312,9 +327,10 @@
 					url: url,
 					type: 'POST',
 					data:  data,
+          dataType: "json",
 					success: function(response, textStatus, jqXHR) {
             steps(5, null);
-            location.replace('/result' + page);
+            location.replace(`/${response.key}/result${page}`);
 					},
 					error: function (jqXHR, textStatus, errorThrown) {
 						console.log(jqXHR);
@@ -323,7 +339,7 @@
             alert('系統異常、請稍後再試');
 					}
 
-				}, 'json');
+				});
     }
   </script>
 </body>

@@ -14,13 +14,15 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
-  <link rel="stylesheet" href="css/project.min.css">
+  <link rel="stylesheet" href="/css/project.min.css">
 </head>
 
 <body class="">
+  <input type="hidden" id="key" value="{{ $key }}"">
+  
   <div class="bg-img layout-column">
     <div class="nav-top">
-      <a href="/"><img src="img/logo.png" alt="logo"></a>
+      <a href="/"><img src="/img/logo.png" alt="logo"></a>
     </div>
     <div class="main d-flex justify-content-center align-items-center">
       <div class="container-fluid w-960">
@@ -28,7 +30,7 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-8 col-sm-4">
             <div class="img-box px-3 mb-4">
-              <img src="img/card4.png" alt="">
+              <img src="/img/card4.png" alt="">
             </div>
           </div>
           <div class="col-11 col-sm-7">
@@ -44,7 +46,7 @@
         <h5 class="text-center text-white mb-4">ASUS RS720A-E11-RS12E</h5>
         <div class="product-list">
           <div class="img-box product-img-box">
-            <img src="img/prod/asus_RS720A.jpg" alt="">
+            <img src="/img/prod/asus_RS720A.jpg" alt="">
           </div>
           <h6 class="mt-3">2 x Socket SP3 AMD EPYC™ 7003 Series</h6>
           <ul>
@@ -56,13 +58,16 @@
           <div class="text-center my-5">
             <a href="Javascript:void(0)" class="btn btn-primary" onclick="know_more()">了解更多伺服器</a>
           </div>
+          <div class="text-center my-5">
+            <a href="Javascript:void(0)" class="btn btn-primary" onclick="play_again()">再玩一次</a>
+          </div>
         </div>
         <h5 class="text-white mb-3 text-center text-lg-left ">ASUS其他型號伺服器</h5>
         <div class="row justify-content-center">
           <div class="col-11 col-lg-6">
             <div class="product-list color-base">
               <div class="img-box product-img-box">
-                <img src="img/prod/asus_RS500A.jpg" alt="">
+                <img src="/img/prod/asus_RS500A.jpg" alt="">
               </div>
               <h6 class="mt-3 text-center font-weight-bold">ASUS RS500A-E10-RS4</h6>
               <p class="text-md">1 x Socket SP3</p>
@@ -88,7 +93,7 @@
           <div class="col-11 col-lg-6">
             <div class="product-list color-base">
               <div class="img-box product-img-box">
-                <img src="img/prod/asus_4000A.jpg" alt="">
+                <img src="/img/prod/asus_4000A.jpg" alt="">
               </div>
               <h6 class="mt-3 text-center font-weight-bold">ASUS ESC4000A-E10</h6>
               <p class="text-md">1 x Socket SP3 (LGA 4094)</p>
@@ -117,12 +122,12 @@
     </div>
     <div class="toolbar">
 			<div class="toolbar__logo">
-				<img class="d-none" src="img/logo2.png" alt="logo">
+				<img class="d-none" src="/img/logo2.png" alt="logo">
 			</div>
 			<div class="toolbar__icons">
-				<a href="javascript:void(0)" data-toggle="modal" data-target="#shareList"><img src="img/icon-share.svg"></a>
-				<a class="d-none" href="javascript:void(0)" data-toggle="modal" data-target="#winnerList"><img src="img/icon-gift.svg"></a>
-				<a href="/rule" target="_blank"><img src="img/icon-i.svg"></a>
+				<a href="javascript:void(0)" data-toggle="modal" data-target="#shareList"><img src="/img/icon-share.svg"></a>
+				<a class="d-none" href="javascript:void(0)" data-toggle="modal" data-target="#winnerList"><img src="/img/icon-gift.svg"></a>
+				<a href="/rule" target="_blank"><img src="/img/icon-i.svg"></a>
 			</div>
       <!-- 中獎名單modal -->
       <div id="winnerList" class="modal fade" data-backdrop="static">
@@ -151,13 +156,13 @@
 								<div class="text-center mb-4 mt-2">
 									<p class="mb-3">Facebook</p>
 									<a href="Javascript:void(0)" style="width: 100px;" onclick="meta_share(this)">
-										<img src="img/icon-fb.png">
+										<img src="/img/icon-fb.png">
 									</a>
 								</div>
 								<div class="text-center mb-4 mt-2">
 									<p class="mb-3">LINE</p>
 									<a href="Javascript:void(0)" style="width: 100px;" onclick="line_share(this)">
-										<img src="img/icon-line.png">
+										<img src="/img/icon-line.png">
 									</a>
 								</div>
 							</div>

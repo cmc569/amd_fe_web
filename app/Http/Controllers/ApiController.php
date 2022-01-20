@@ -58,6 +58,10 @@ class ApiController extends Controller
             return response()->json(['status' => 400, 'message' => '參數錯誤']);
         }
 
+        \Log::info('register:');
+        \Log::info($request->ip());
+        \Log::info($request->input());
+
         return $this->api_service->register(
             $request->ip(),
             $request->input('name'),
