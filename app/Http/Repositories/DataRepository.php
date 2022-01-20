@@ -24,6 +24,11 @@ class DataRepository
     /**
      * 總流量
      */
+    public function getAllData()
+    {
+        return $this->steps->all()->count();
+    }
+
     public function getAllSteps()
     {
         return $this->steps->select('step', DB::raw('count(*) as total'))->groupBy('step')->get();

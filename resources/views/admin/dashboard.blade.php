@@ -39,6 +39,10 @@
               <p class="total__people">{{ $data['game'] ?? '0' }}</p>
             </div>
             <div class="total">
+              <p>再玩一次人數</p>
+              <p class="total__people">{{ $data['again'] ?? '0' }}</p>
+            </div>
+            <div class="total">
               <p>總名單人數</p>
               <p class="total__people">{{ $data['contact_all'] ?? '0' }}</p>
             </div>
@@ -48,6 +52,7 @@
             </div>
           </div>
         </div>
+        {{--
         <div class="content-wrap">
           <h5 class="mb-3">● 活動點擊分析</h5>
           <!-- Datatable start -->
@@ -104,6 +109,7 @@
           </table>
           <!-- End Datatable -->
         </div>
+        --}}
       </div>
     </main>
   </div>

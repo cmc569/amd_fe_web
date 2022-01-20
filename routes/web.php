@@ -21,24 +21,24 @@ Route::view('/rule', 'rule');
 Route::view('/products', 'products');
 
 Route::get('/qiz/{key?}', function($key=null) {
-    return view('qiz', ['key' => $key]);
+    return view('qiz', compact('key'));
 });
 
 Route::group(['prefix' => '{key}'], function ($key) {
     Route::get('result0', function ($key) {
-        return view('result0', ['key' => $key]);
+        return view('result0', compact('key'));
     });
 
     Route::get('result1', function ($key) {
-        return view('result1', ['key' => $key]);
+        return view('result1', compact('key'));
     });
 
     Route::get('result2', function ($key) {
-        return view('result2', ['key' => $key]);
+        return view('result2', compact('key'));
     });
 
     Route::get('result3', function ($key) {
-        return view('result3', ['key' => $key]);
+        return view('result3', compact('key'));
     });
 });
 

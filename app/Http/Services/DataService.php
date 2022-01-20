@@ -23,49 +23,44 @@ class DataService
      */
     public function getStage()
     {
+        $total = $this->data_repository->getAllData();    //總流量
         $game_all = $this->data_repository->getGameAll();   //總遊戲人數
+
+        $play_again = $this->data_repository->getStageCount(9)->total;   //第9階段的人次
 
         $contact_all = $this->data_repository->contactAll();    //總名單人數
         $contact_distinct = $this->data_repository->contactDistinct();  //總不重複名單人數
 
-        // $last_stage = $this->data_repository->getStageCount(8)->total;   //最後(第8階段)階段的人次
-        $first_stage = $this->data_repository->getStageCount(1)->total;   //第1階段的人次
-        $all = $this->data_repository->getAllSteps()->toArray();    //各階段數據
+        // $first_stage = $this->data_repository->getStageCount(1)->total;   //第1階段的人次
+        // $all = $this->data_repository->getAllSteps()->toArray();    //各階段數據
+        
 
-        $data = [];
-        $total = 0;
-        if (count($all) > 0) {
-            // foreach ($all as $item) {
-            //     $total += (int)$item['total'];
+        // $data = [];
+        // $total = 0;
+        // if (count($all) > 0) {
+        //     foreach ($all as $item) {
+        //         $total += (int)$item['total'];
+        //         $rating = (int)round(($item['total'] / $first_stage) * 100);
 
-            //     $data[$item['step']] = [
-            //         'step'      => $item['step'],
-            //         'total'     => $item['total'],
-            //         'percent'   => (int)round(($last_stage / $item['total']) * 100).'%',
-            //     ];
-            // }
-            foreach ($all as $item) {
-                $total += (int)$item['total'];
-                $rating = (int)round(($item['total'] / $first_stage) * 100);
+        //         if ($rating > 100) {
+        //             $rating = 100;
+        //         }
 
-                if ($rating > 100) {
-                    $rating = 100;
-                }
-
-                $data[$item['step']] = [
-                    'step'      => $item['step'],
-                    'total'     => $item['total'],
-                    'percent'   => $rating.'%',
-                ];
-            }
-        }
+        //         $data[$item['step']] = [
+        //             'step'      => $item['step'],
+        //             'total'     => $item['total'],
+        //             'percent'   => $rating.'%',
+        //         ];
+        //     }
+        // }
 
         return [
             'total'         => $total,
             'game'          => $game_all,
+            'again'         => $play_again,
             'contact_all'   => $contact_all,
             'contact'       => $contact_distinct,
-            'data'          => $data,
+            // 'data'          => $data,
         ];
     }
 
@@ -76,9 +71,8 @@ class DataService
      */
     public function getUser(String $start=null, String $end=null)
     {
-        // $users = $this->data_repository->getUser($start, $end);
         $users = $this->data_repository->getUser($start, $end);
-// dd($users);        
+      
         $data = [];
         foreach ($users as $user) {
             $data[] = [
@@ -94,9 +88,7 @@ class DataService
             ];
         }
         
-//         dd($data);
         return response()->json(['data' => $data]);
-        // return response()->json(['data' => $users]);
     }
 
 }
