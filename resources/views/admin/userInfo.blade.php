@@ -107,7 +107,7 @@
 
             buttons: {
                 buttons: [{
-                    extend: 'csv',
+                    extend: 'excel',
                     text: '下載名單',
                     title: '清單',
                     className: 'btn btn-primary btn-sm'
