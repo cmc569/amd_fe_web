@@ -113,12 +113,6 @@
                     title: '清單',
                     className: 'btn btn-primary btn-sm'
                 },],
-                // buttons: [{
-                //     extend: 'csv',
-                //     text: '下載名單',
-                //     title: '清單',
-                //     className: 'btn btn-primary btn-sm'
-                // },],
                 dom: {
                     button: {
                         className: 'btn'
