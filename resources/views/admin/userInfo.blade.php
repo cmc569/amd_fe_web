@@ -108,6 +108,7 @@
             buttons: {
                 buttons: [{
                     extend: 'csv',
+                    bominc: true,
                     text: '下載名單',
                     title: '清單',
                     className: 'btn btn-primary btn-sm'
