@@ -83,6 +83,7 @@ class DataService
                 'tel'           => $user['tel'],
                 'mobile'        => $user['mobile'],
                 'email'         => $user['email'],
+                'purchase'      => $user['purchase'],
                 'contact'       => $user['contact'],
                 'created_at'    => $user['created_at'],
             ];

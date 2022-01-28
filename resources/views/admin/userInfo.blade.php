@@ -55,6 +55,7 @@
                                 <th>公司電話/分機</th>
                                 <th>行動電話</th>
                                 <th>Email</th>
+                                <th>近期是否有採購需求</th>
                                 <th>願意業務聯繫</th>
                             </tr>
                         </thead>
@@ -137,6 +138,7 @@
                 { data: 'tel'},
                 { data: 'mobile'},
                 { data: 'email'},
+                { data: 'purchase'},
                 {
                     data: 'contact',
                     render: function(data, type, row, meta) {
