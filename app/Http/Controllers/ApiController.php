@@ -52,6 +52,7 @@ class ApiController extends Controller
             'mobile'    => 'required|string|size:10',
             'email'     => 'required|Email',
             'contact'   => 'required|alpha|size:1',
+            'buy'       => 'required',
         ]);
 
         if (empty($validated)) {
@@ -71,6 +72,7 @@ class ApiController extends Controller
             $request->input('mobile'),
             $request->input('email'),
             $request->input('contact'),
+            $request->input('buy'),
         );
     }
 }

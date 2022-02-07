@@ -29,7 +29,7 @@ class CustomerRepository
      * @param String $contact
      * @param String $key
      */
-    public function createCustomers(String $ip, String $name, String $title, String $company, String $tel, String $mobile, String $email, String $contact, String $key)
+    public function createCustomers(String $ip, String $name, String $title, String $company, String $tel, String $mobile, String $email, String $contact, String $buy, String $key)
     {
         $contact = ($contact == 'Y') ? 'Y' : 'N';
         $ip = $ip ?? null;
@@ -43,6 +43,7 @@ class CustomerRepository
             'mobile'        => $mobile,
             'email'         => $email,
             'contact'       => $contact,
+            'buy'           => $buy,
             'identify_key'  => $key,
         ]);
     }

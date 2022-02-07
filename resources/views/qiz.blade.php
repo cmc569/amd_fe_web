@@ -317,6 +317,7 @@
             mobile: form.mobile.value,
             email: form.email.value,
             contact: form.contact.value,
+            buy: form.buy.text,
           }
           register(data, index);
         },
@@ -335,10 +336,13 @@
           agree: {
             required: '尚未勾選'
           },
+          buy: {
+            required: '尚未勾選'
+          },
         },
         // 更改錯誤資訊顯示的位置
         errorPlacement: function (error, element) {
-          if (element.attr("name") == "contact" || element.attr("name") == "agree") {
+          if (element.attr("name") == "contact" || element.attr("name") == "agree" || element.attr("name") == "buy") {
             error.appendTo(element.closest('.mb-3'));
           } else {
             element.closest('.mb-3').append(error);
