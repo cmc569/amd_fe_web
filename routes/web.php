@@ -17,7 +17,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DataController;
 
 Route::view('/', 'index');
-Route::view('/rule', 'rule');
+Route::view('/rule', 'rule')->name('rule');
 Route::view('/products', 'products');
 
 Route::get('/qiz/{key?}', function($key=null) {

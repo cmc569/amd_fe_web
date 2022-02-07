@@ -280,13 +280,13 @@ p.error {
   bottom: 0;
 }
 
-#contact-error, #agree-error {
+#contact-error, #agree-error, #buy-error {
   position: relative;
   bottom: auto;
 }
 
 @media screen and (max-width: 992px) {
-  #contact-error, #agree-error {
+  #contact-error, #agree-error, #buy-error {
     position: absolute;
     left: 0;
     bottom: -0.5rem;
@@ -750,6 +750,12 @@ ul.list {
 .form-wrap {
   width: 90%;
   margin: 3rem auto 2rem;
+}
+
+@media screen and (max-width: 575px) {
+  .form-wrap {
+    width: 100%;
+  }
 }
 
 .level {

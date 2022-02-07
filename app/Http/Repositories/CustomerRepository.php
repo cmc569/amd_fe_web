@@ -43,7 +43,7 @@ class CustomerRepository
             'mobile'        => $mobile,
             'email'         => $email,
             'contact'       => $contact,
-            'buy'           => $buy,
+            'purchase'      => $buy,
             'identify_key'  => $key,
         ]);
     }

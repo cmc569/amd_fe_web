@@ -103,19 +103,19 @@
                   <label class="label-style mr-4 mb-2 flex-shrink-0">近期是否有伺服器(運算)採購需求？</label>
                   <div class="d-flex flex-wrap">
                     <div class="mr-4">
-                      <input type="radio" class="d-none" id="buy1" name="buy" required>
+                      <input type="radio" class="d-none" id="buy1" name="buy" required value="3-6個月">
                       <label for="buy1"><span class="fake-radio"></span>3-6個月</label>
                     </div>
                     <div class="mr-4">
-                      <input type="radio" class="d-none" id="buy2" name="buy" required>
+                      <input type="radio" class="d-none" id="buy2" name="buy" required value="6-12個月">
                       <label for="buy2"><span class="fake-radio"></span>6-12個月</label>
                     </div>
                     <div class="mr-4">
-                      <input type="radio" class="d-none" id="buy3" name="buy" required>
+                      <input type="radio" class="d-none" id="buy3" name="buy" required value="12-18個月">
                       <label for="buy3"><span class="fake-radio"></span>12-18個月</label>
                     </div>
                     <div class="mr-4">
-                      <input type="radio" class="d-none" id="buy4" name="buy" required>
+                      <input type="radio" class="d-none" id="buy4" name="buy" required value="無">
                       <label for="buy4"><span class="fake-radio"></span>無</label>
                     </div>
                   </div>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="mb-3" style="position: relative;">
                   <input type="checkbox" class="d-none" name="agree" id="agree" required>
-                  <label for="agree" style="font-size: 0.8rem;"><span class="fake-radio"></span>我已閱讀<a href="rule.html"
+                  <label for="agree" style="font-size: 0.8rem;"><span class="fake-radio"></span>我已閱讀<a href="{{route('rule')}}"
                       target="_blank"
                       class="text-link">「精技電腦個資蒐集聲明」</a>，並同意收到精技電腦主辦及承辦的各式訊息，透過各種方式（包含但不限於電話、電子郵件、簡訊、傳真及書面等方式）與我聯繫。</label>
                 </div>
@@ -317,8 +317,9 @@
             mobile: form.mobile.value,
             email: form.email.value,
             contact: form.contact.value,
-            buy: form.buy.text,
+            buy: form.buy.value,
           }
+          
           register(data, index);
         },
         ignore: true,
