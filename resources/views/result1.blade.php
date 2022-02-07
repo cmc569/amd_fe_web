@@ -42,7 +42,9 @@
             <p class="text-white">你的做事講求效率，喜歡按部就班、精打細算，個性謹慎。給人的感覺是有效率、精確、仔細、可靠且有信用！</p>
           </div>
         </div>
-        <h4 class="text-center text-white mt-5">最適合你的辦公夥伴</h4>
+        <!-- 20220128 修改處:標題修改(每個result頁都一樣) -->
+        <h4 class="text-center text-white mt-5">AMD 推薦搭載 AMD EPYC™ 7002 / 7003 系列處理器<br>最適合你的辦公夥伴</h4>
+        <!-- End -->
         <h5 class="text-center text-white mb-4">Lenovo ThinkSystem SR665 Server</h5>
         <div class="product-list">
           <div class="img-box product-img-box">

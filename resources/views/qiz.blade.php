@@ -59,7 +59,9 @@
         <div class="modal-content">
           <div class="modal-body">
             <h4 class="text-center mt-3">填寫資料 獲得結果！</h4>
-            <h6 class="text-center">12/22 前完成活動並填寫完整資料，就有機會獲得精美好禮！</h6>
+            <!-- 20220128 修改處 -->
+            <h6 class="text-center">前 100 名完成測驗並填寫完整資料，即有機會獲得由精技電腦提供的全家便利商店電子即享卷100元<br class="d-none d-md-block"> (限量 100 名，送完為止)。</h6>
+            <!-- End -->
             <div class="form-wrap">
               <form action="" id="Form">
                 <div class="d-flex justify-content-between">
@@ -79,17 +81,46 @@
                   </div>
                   <div class="input-flex ml-3 mb-3">
                     <label class="label-style">公司電話</label>
-                    <input type="text" name="tel" class="input-style" required>
+                    <!-- 20220128 修改處:新增placeholder -->
+                    <input type="text" name="tel" class="input-style" required placeholder="02-27962345#123">
                   </div>
                 </div>
                 <div class="input-flex mb-3">
                   <label class="label-style">行動電話</label>
-                  <input type="text" name="mobile" class="input-style" required>
+                  <!-- 20220128 修改處 -->
+                  <div class="w-100">
+                    <input type="text" name="mobile" class="input-style" required placeholder="0912-234-456">
+                    <small>*活動獎項將使用簡訊寄送</small>
+                  </div>
+                  <!-- End -->
                 </div>
                 <div class="input-flex mb-3">
                   <label class="label-style">Email</label>
                   <input type="email" name="email" class="input-style" required>
                 </div>
+                <!-- 20220128 修改處:新增題目 -->
+                <div class="d-flex flex-wrap mb-3" style="position: relative;">
+                  <label class="label-style mr-4 mb-2 flex-shrink-0">近期是否有伺服器(運算)採購需求？</label>
+                  <div class="d-flex flex-wrap">
+                    <div class="mr-4">
+                      <input type="radio" class="d-none" id="buy1" name="buy" required>
+                      <label for="buy1"><span class="fake-radio"></span>3-6個月</label>
+                    </div>
+                    <div class="mr-4">
+                      <input type="radio" class="d-none" id="buy2" name="buy" required>
+                      <label for="buy2"><span class="fake-radio"></span>6-12個月</label>
+                    </div>
+                    <div class="mr-4">
+                      <input type="radio" class="d-none" id="buy3" name="buy" required>
+                      <label for="buy3"><span class="fake-radio"></span>12-18個月</label>
+                    </div>
+                    <div class="mr-4">
+                      <input type="radio" class="d-none" id="buy4" name="buy" required>
+                      <label for="buy4"><span class="fake-radio"></span>無</label>
+                    </div>
+                  </div>
+                </div>
+                <!-- End -->
                 <div class="d-flex mb-3" style="position: relative;">
                   <label class="label-style mr-4">願意業務聯繫</label>
                   <div class="mr-4">

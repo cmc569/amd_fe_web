@@ -42,7 +42,9 @@
             <p class="text-white">你善於管理部署、邏輯分析，特別是數據及科技運用，相當具有洞察力，能夠快速且有效地解決複雜問題。</p>
           </div>
         </div>
-        <h4 class="text-center text-white mt-5">最適合你的辦公夥伴</h4>
+        <!-- 20220128 修改處:標題修改(每個result頁都一樣) -->
+        <h4 class="text-center text-white mt-5">AMD 推薦搭載 AMD EPYC™ 7002 / 7003 系列處理器<br>最適合你的辦公夥伴</h4>
+        <!-- End -->
         <h5 class="text-center text-white mb-4">Dell PowerEdge C6525 Server</h5>
         <div class="product-list">
           <div class="img-box product-img-box">

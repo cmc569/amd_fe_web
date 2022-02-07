@@ -42,7 +42,9 @@
             <p class="text-white">你是直觀、創新導向的人，樂於學習新事物。做事富有彈性，極富應變力又具備條理，可塑性高，偏向視覺型的人。</p>
           </div>
         </div>
-        <h4 class="text-center text-white mt-5">最適合你的辦公夥伴</h4>
+        <!-- 20220128 修改處:標題修改(每個result頁都一樣) -->
+        <h4 class="text-center text-white mt-5">AMD 推薦搭載 AMD EPYC™ 7002 / 7003 系列處理器<br>最適合你的辦公夥伴</h4>
+        <!-- End -->
         <h5 class="text-center text-white mb-4">ASUS RS720A-E11-RS12E</h5>
         <div class="product-list">
           <div class="img-box product-img-box">
