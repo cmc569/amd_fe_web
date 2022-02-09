@@ -49,7 +49,7 @@ class ApiController extends Controller
             'title'     => 'required|string',
             'company'   => 'required|string',
             'tel'       => 'required|string',
-            'mobile'    => 'required|string|size:10',
+            'mobile'    => 'required|string',
             'email'     => 'required|Email',
             'contact'   => 'required|alpha|size:1',
             'buy'       => 'required',
