@@ -71,10 +71,12 @@ class DataRepository
     public function getUser(String $start=null, String $end=null)
     {
         if ($start && $end) {
-            return $this->customers->select('ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'purchase','contact', 'created_at')->whereBetween('created_at', [$start, $end])->orderBy('created_at', 'desc')->get()->unique('mobile');
+            // return $this->customers->select('ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'purchase','contact', 'created_at')->whereBetween('created_at', [$start, $end])->orderBy('created_at', 'desc')->get()->unique('mobile');
+            return $this->customers->select('ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'purchase','contact', 'created_at')->whereBetween('created_at', [$start, $end])->orderBy('created_at', 'desc')->get();
         }
 
-        return $this->customers->select('ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'purchase', 'contact', 'created_at')->orderBy('created_at', 'desc')->get()->unique('mobile');
+        // return $this->customers->select('ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'purchase', 'contact', 'created_at')->orderBy('created_at', 'desc')->get()->unique('mobile');
+        return $this->customers->select('ip', 'name', 'title', 'company', 'tel', 'mobile', 'email', 'purchase', 'contact', 'created_at')->orderBy('created_at', 'desc')->get();
     }
 
 }
